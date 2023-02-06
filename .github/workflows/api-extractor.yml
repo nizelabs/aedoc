@@ -1,0 +1,30 @@
+name: API Extractor
+on:
+  workflow_dispatch:
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18]
+    steps:
+      - id: checkout
+        name: Checkout Repository
+        uses: actions/checkout@v3
+      - id: setup-pnpm
+        name: Setup PNPM
+        uses: pnpm/action-setup@v2
+        with:
+          version: 7
+      - id: setup-node
+        name: Setup NodeJS
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "pnpm"
+      - id: install-dependencies
+        name: Install Dependencies
+        run: pnpm install
+      - id: generate-api-docs
+        name: Generate API Documentations
+        run: pnpm run build:docs
