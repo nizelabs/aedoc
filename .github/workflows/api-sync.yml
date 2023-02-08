@@ -1,4 +1,4 @@
-name: API Extractor
+name: API Docs Sync
 on:
   workflow_dispatch:
 jobs:
@@ -25,6 +25,12 @@ jobs:
       - id: install-dependencies
         name: Install Dependencies
         run: pnpm install
-      - id: generate-api-docs
-        name: Generate API Documentations
-        run: pnpm run build:docs
+      - id: setup-deno
+        name: Setup Deno
+        uses: denoland/setup-deno@v1
+        with:
+          deno-version: v1.30.x
+      - run: echo "::notice::Workflow is successfully dipatched"
+      # - id: generate-api-docs
+      #   name: Generate API Documentations
+      #   run: pnpm run build:docs
