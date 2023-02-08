@@ -33,4 +33,10 @@ const response = await fetch(
 	}
 );
 
-if (response.status >= 400) throw new Error(await response.json());
+if (response.status >= 400)
+	throw new Error(
+		JSON.stringify({
+			status: response.status,
+			body: await response.text(),
+		})
+	);
