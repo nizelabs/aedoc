@@ -20,8 +20,8 @@ const response = await fetch(
 		body: JSON.stringify({
 			ref: branch,
 			inputs: {
-				changed: JSON.parse(changed),
-				deleted: JSON.parse(deleted),
+				changed,
+				deleted,
 			},
 		}),
 		headers: {
