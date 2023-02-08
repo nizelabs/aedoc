@@ -15,7 +15,7 @@ invariant(pat, '"pat" argument is required');
 
 // send workflow dispatch request via github api
 const response = await fetch(
-	`https://api.github.com/repos/nizelabs/aedoc/actions/workflows/api-sync/dispatches`,
+	`https://api.github.com/repos/nizelabs/aedoc/actions/workflows/api-sync.yml/dispatches`,
 	{
 		body: JSON.stringify({
 			ref: branch,
