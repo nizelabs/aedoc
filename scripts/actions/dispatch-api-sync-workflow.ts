@@ -1,5 +1,5 @@
 import invariant from "npm:tiny-invariant@^1.3.1";
-import { parse } from "std/flags/mod.ts";
+import { parse } from "https://deno.land/std@0.177.0/flags/mod.ts";
 
 const { changed, deleted, branch, pat } = parse(Deno.args, {
 	default: {
