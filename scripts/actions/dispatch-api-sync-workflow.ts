@@ -9,7 +9,7 @@ const { changed, deleted, branch, pat } = parse(Deno.args, {
 	string: ["changed", "deleted", "branch", "pat"],
 });
 
-invariant(changed, `"changed" argument is required: ${Deno.args}`);
+invariant(changed, `"changed" argument is required`);
 invariant(deleted, '"deleted" argument is required');
 invariant(pat, '"pat" argument is required');
 
